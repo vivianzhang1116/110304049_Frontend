@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box;
+  }
+body {
+    font-family: Arial;
+    margin: 0;
+  }
+.header{ 
+    font-family: Arial;
+    padding: 60px;
+    font-size: 16px;
+    text-align: left;
+    background: url('https://miro.medium.com/v2/resize:fit:14720/1*ZajEMv2yEHjwYlNOHmtNfg.jpeg') center/cover no-repeat;;
+    color: white;
+    margin-bottom: -20px;
+}
+.navbar{  
+    display: flex;
+    background-color: #d1c7b7;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    list-style-type: none; /* Remove list item bullets */
+}
+.navbar li {
+    color: black;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+  }
+  
+.navbar li:hover {
+    background-color: #837651;
+    color: white;
+  }
+
+.dropdown{
+    position: relative;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #d1c7b7; /* Set background color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adjust box shadow */
+    border-radius: 4px; /* Add border radius for rounded corners */
+    z-index: 1;
+    padding: 8px 0; /* Adjust padding */
+    transition: opacity 0.3s; /* Add a smooth transition effect */
+    opacity: 0; /* Initially hidden */
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1; 
+}
+
+.dropdown-content a {
+    color: #f2f2f2; /* Set link color */
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s; /* Add a smooth background color transition */
+}
+  
+.dropdown-content a:hover {
+    background-color: #837651; /* Change background color on hover */
+}
+
+/* Column container */
+.row {  
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+flex: 30%;
+background-color: #f1f1f1;
+padding: 20px;
+}
+
+
+@media (max-width: 700px) {
+.row, .navbar {   
+    flex-direction: column;
+}
+}
+
+@media print {
+    body {
+        color: black; /* Set text color for print */
+      }
+    .header {
+        display: none; /* Hide header on print */
+    }
+}
