@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Comparison</title>
+    <style>
+
+        .button-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #f0f0f0;
+            padding: 5px;
+        }
+
+        button {
+            padding: 5px 10px;
+            font-size: 15px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+            margin: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <script>
+        var num1, num2;
+        num1 = window.prompt("please enter the first nmuber");
+        num2 = window.prompt("please enter the second nmuber");
+        num1 = parseInt(num1);
+        num2 = parseInt(num2);
+        if (num1 > num2) {
+            document.body.style.backgroundColor = 'lightblue';
+            document.writeln(num1 +">" + num2);
+        } else if (num1 < num2) {
+            document.body.style.backgroundColor = 'orange';
+            document.writeln(num1 + "<" + num2);
+        } else {
+            document.body.style.backgroundColor = 'lightyellow';
+            document.writeln(num1 + "==" + num2);
+        }
+
+        function showFirstInput() {
+            alert("First Input: " + num1);
+        }
+        function showSecondInput() {
+            alert("Second Input: " + num2);
+        }
+    </script>
+    <div class="button-container">
+
+        <button onclick="showFirstInput()">1st button</button>
+        <button onclick="showSecondInput()">2st button</button>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number guessing</title>
+</head>
+
+<body>
+    <script>
+        var rand=Math.floor((Math.random()*10)+1);
+        inputNum = window.prompt("please input number:");
+        inputNum = parseInt(inputNum);
+        
+        while (inputNum!=rand) {
+            inputNum = window.prompt("please input number(1-10):");
+            inputNum = parseInt(inputNum);
+        } 
+
+        document.writeln("you guess right number!");
+
+    </script>
+
+</body>
+
+</html>
