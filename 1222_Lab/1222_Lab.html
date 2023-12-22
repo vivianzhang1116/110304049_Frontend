@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Roll</title>
+
+    <style>
+        ol {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap; 
+        }
+
+        li {
+            margin-right: 10px;
+            margin-bottom: 10px; 
+        }
+    </style>
+</head>
+
+<body>
+    <form action="#">
+        <input id="rollButton" type="button" value="Roll Dice">
+    </form>
+    <ol id="diceContainer"></ol>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Face</th>
+                <th>Frequency</th>
+                <th>Probability</th>
+            </tr>
+        </thead>
+        <tbody id="frequencyTableBody"></tbody>
+    </table>
+
+    <script>
+
+        // Initialize face frequencies
+        const faceFrequencies = {
+            die1: 0,
+            die2: 0,
+            die3: 0,
+            die4: 0,
+            die5: 0,
+            die6: 0
+        };
+        
+        let totalRolls = 0;
+
+        // add rolldice bottom
+        document.getElementById('rollButton').addEventListener('click', rollDice);
+
+        function rollDice() {
+
+            // Roll 12 dice and update the images
+            for (let i = 1; i <= 12; i++) {
+                // (random) 1-6 ${i} i is substituted into the string 
+                const dieNumber = Math.floor(Math.random() * 6) + 1;
+                document.getElementById(`die${i}`).src = `C:\\Users\\user\\110304049_Frontend\\1222_Lab\\die${dieNumber}.png`;
+                // Update face frequencies
+                faceFrequencies[`die${dieNumber}`]++;
+                totalRolls++;
+            }
+
+            // Update frequency table
+            updateFrequencyTable();
+        }
+
+        function updateFrequencyTable() {
+            // Update the HTML table with face frequencies and probabilities
+            const tableBody = document.getElementById('frequencyTableBody');
+            tableBody.innerHTML = '';
+
+            for (const face in faceFrequencies) {
+                const frequency = faceFrequencies[face];
+                const probability = (frequency / totalRolls * 100).toFixed(2);
+
+                const row = `<tr>
+                                <td>${face}</td>
+                                <td>${frequency}</td>
+                                <td>${probability}%</td>
+                             </tr>`;
+                tableBody.innerHTML += row;
+            }
+        }
+
+        // Dynamically create the image elements
+        const diceContainer = document.getElementById('diceContainer');
+        for (let i = 1; i <= 12; i++) {
+            const listItem = document.createElement('li');
+            const img = document.createElement('img');
+            img.id = `die${i}`;
+            img.src = `C:\\Users\\user\\110304049_Frontend\\1222_Lab\\die1.png`; // Default image
+            img.alt = 'blank image';
+            listItem.appendChild(img);
+            diceContainer.appendChild(listItem);
+        }
+    </script>
+</body>
+
+</html>

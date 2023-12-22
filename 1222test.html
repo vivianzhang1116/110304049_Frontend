@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sorting</title>
+</head>
+
+<body>
+    <script>
+     
+        inputNum = window.prompt("please enter first number:");
+        inputNum = parseInt(inputNum);
+
+        inputNum2 = window.prompt("please enter second number:");
+        inputNum2 = parseInt(inputNum2);
+    
+        inputNum3 = window.prompt("please enter third number:");
+        inputNum3 = parseInt(inputNum3);
+
+        
+        if(inputNum>inputNum2){
+
+            if(inputNum>inputNum3){
+                document.writeln("Maximun" + inputNum);
+            }else{
+                document.writeln("Maximun" + inputNum3);
+            }
+        }else{
+            if(inputNum2>inputNum3){
+                document.writeln("Maximun" + inputNum2);
+            }else{
+                document.writeln("Maximun" + inputNum3);
+            }
+        }
+// ex2
+        var name;
+        var now  = new Date();
+        var hour = now.getHours();
+        name = window.prompt("please enter your name");
+        if( hour < 12 ){
+            document.writeln("<h1>Good Morining.");
+        }
+        if( hour >= 12){
+            hour = hour - 12;
+            if( hour <6 ){
+                document.writeln("<h1>Good Afternoon.");
+            }else{
+                document.writeln("<h1>Good Evening.");
+            }
+        }
+        document.writeln( name + ", welcome to JavaScript programming!");
+// ex3
+
+Num = Math.random() * 10 + 1;
+Num2 = Math.random() * 10 + 1;
+Num3 = Math.random() * 10 + 1;
+var max = maximum(Num,Num2,Num3);
+document.writeln(max);
+
+    </script>
+
+</body>
+
+</html>
